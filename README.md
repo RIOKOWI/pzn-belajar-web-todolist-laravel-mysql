@@ -176,9 +176,18 @@ TodolistControllerTest.php
 index.blade.php
 
 
-## LANJUTAN MATERI ##
+## LANJUTAN MATERI (WEB TODOLIST DENGAN LARAVEL & MYSQL) ##
+
+## SLIDE
+
+
+## SOURCE CODE
+
 
 ## UPGRADE KE LARAVEL 10
 
 contoh di file :
 composer.json
+
+perintah untuk upgrade :
+composer update
