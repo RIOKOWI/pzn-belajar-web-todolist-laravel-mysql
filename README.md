@@ -187,6 +187,7 @@ index.blade.php
 ## UPGRADE KE LARAVEL 10
 
 contoh di file :
+
 composer.json
 
 perintah untuk upgrade :
@@ -195,11 +196,23 @@ composer update
 ## USER MODEL
 
 contoh di file :
+
 User.php
 2014_10_12_000000_create_users_table.php
 
 ## USER SERVICE
 
 contoh di file :
+
 UserService.php
 UserServiceImpl.php
+
+## USER TEST
+
+contoh di file :
+
+UserControllerTest.php
+LINE 25-33
+UserServiceTest.php
+LINE 29-33
+UserSeeder.php
