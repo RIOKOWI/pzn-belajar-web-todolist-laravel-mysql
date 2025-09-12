@@ -197,3 +197,9 @@ composer update
 contoh di file :
 User.php
 2014_10_12_000000_create_users_table.php
+
+## USER SERVICE
+
+contoh di file :
+UserService.php
+UserServiceImpl.php
