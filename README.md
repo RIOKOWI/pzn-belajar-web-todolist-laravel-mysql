@@ -216,3 +216,13 @@ LINE 25-33
 UserServiceTest.php
 LINE 29-33
 UserSeeder.php
+
+## TODO MODEL
+
+contoh di file :
+
+UserControllerTest.php
+LINE 25-33
+UserServiceTest.php
+LINE 29-33
+UserSeeder.php
