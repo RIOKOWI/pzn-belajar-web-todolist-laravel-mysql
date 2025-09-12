@@ -191,3 +191,9 @@ composer.json
 
 perintah untuk upgrade :
 composer update
+
+## USER MODEL
+
+contoh di file :
+User.php
+2014_10_12_000000_create_users_table.php
