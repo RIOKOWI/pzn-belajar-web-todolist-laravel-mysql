@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
 
+    protected $table = 'todos';
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $timestamps = true;
+    public $incrementing = false;
     protected $fillable = [
         'id',
         'todo'
