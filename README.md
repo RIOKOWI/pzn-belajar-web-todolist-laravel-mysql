@@ -240,3 +240,7 @@ TodolistserviceImpl.php
 TodolistserviceTest.php
 TestCase.php
 TodoSeeder.php
+
+## MANUAL TEST
+
+php artisan serve
