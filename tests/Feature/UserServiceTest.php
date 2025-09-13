@@ -13,7 +13,7 @@ class UserServiceTest extends TestCase
 {
     private UserService $userService;
 
-    protected function setUp():void
+    public function setUp():void
     {
         parent::setUp();
         DB::delete('delete from users');

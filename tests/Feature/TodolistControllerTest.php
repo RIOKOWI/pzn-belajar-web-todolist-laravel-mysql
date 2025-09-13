@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\TodoSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -11,13 +12,10 @@ class TodolistControllerTest extends TestCase
     
     public function testView()
     {
+        $this->seed(TodoSeeder::class);
         $this->withSession([
             'user' => 'rio',
-            'todolist' => [
-                'id' => '1',
-                'todo' => 'ding ding ding ngoding'
-            ]
-        ])->get('/todolist')->assertSeeText('To do List')->assertSeeText('1')->assertSeeText('ding ding ding ngoding');
+        ])->get('/todolist')->assertSeeText('To do List')->assertSeeText('1')->assertSeeText('rio');
     }
 
 

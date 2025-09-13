@@ -2,20 +2,22 @@
 
 namespace Tests\Feature;
 
-use App\Services\TodolistService;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
+use App\Services\TodolistService;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Testing\Assert;
 
 class TodolistServiceTest extends TestCase
 {
     private  TodolistService $todolistSetvice;
 
-    protected function setUp():void
+    public function setUp():void
     {
         parent::setUp();
-
+        DB::delete('delete from todos');
         $this->todolistSetvice = $this->app->make(TodolistService::class);
     }
 
@@ -28,7 +30,7 @@ class TodolistServiceTest extends TestCase
     {
         $this->todolistSetvice->saveTodo("1", "rio");
 
-        $todolist = Session::get('todolist');
+        $todolist = $this->todolistSetvice->getTodolist();
         foreach($todolist as $value){
             self::assertEquals("1", $value['id']);
             self::assertEquals("rio", $value['todo']);
@@ -55,14 +57,14 @@ class TodolistServiceTest extends TestCase
         $this->todolistSetvice->saveTodo('1', 'rio');
         $this->todolistSetvice->saveTodo('2', 'achyar');
 
-        self::assertEquals($expected, $this->todolistSetvice->getTodolist());
+        Assert::assertArraySubset($expected, $this->todolistSetvice->getTodolist());
 
     }
 
     public function testRemoveTodo()
     {
-        $this->todolistSetvice->saveTodo('1', 'mbud');
-        $this->todolistSetvice->saveTodo('2', 'tohir');
+        $this->todolistSetvice->saveTodo('1', 'rio');
+        $this->todolistSetvice->saveTodo('2', 'achyar');
 
         self::assertEquals(2, sizeof($this->todolistSetvice->getTodolist()));
         // cek ada berapa todo
@@ -78,6 +80,6 @@ class TodolistServiceTest extends TestCase
         
         $this->todolistSetvice->removeTodo(2);
         
-        self::assertEquals(1, sizeof($this->todolistSetvice->getTodolist()));
+        self::assertEquals(0, sizeof($this->todolistSetvice->getTodolist()));
     }
 }
